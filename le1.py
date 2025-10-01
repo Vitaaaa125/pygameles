@@ -36,6 +36,8 @@ class Player(sprite.Sprite):
 
 player1 = Player("images/sprite1.png", 150, 450)
 player2 = Player("images/sprite2.png", 450, 450)
+player3 = Player("images/20250608155334!Стіч_(персонаж).png", 450, 150)
+
 
 
 
@@ -47,10 +49,18 @@ while True:
     
     player1.update(K_RIGHT, K_LEFT, K_UP, K_DOWN)
     player2.update(K_d, K_a, K_w, K_s)
+    player3.update(K_j, K_g,K_y,K_h)
 
     if sprite.collide_rect(player1, player2):
         quit()
+    elif sprite.collide_rect(player3, player2):
+        quit()
+    elif sprite.collide_rect(player1, player3):
+        quit()
+    
     player1.draw(window)
     player2.draw(window)
+    player3.draw(window)
+
     display.update()
     clock.tick(FPS)
